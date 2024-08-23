@@ -1,10 +1,13 @@
-import EventItem from './subComponents/EventItem';
-import data from '../../data/events.json';
+import { useState } from 'react';
 
-//const events = data._embedded.events;
-const { _embedded: { events }} = data;
+import EventItem from './subComponents/EventItem';
+import eventsJSON from '../../data/events.json';
 
 const Events = () => {
+    
+    const [data] = useState(eventsJSON);
+    //const events = data._embedded.events;
+    const { _embedded: { events }} = data;
 
     const eventsComponent = events.map((eventItem) => (
             <EventItem
