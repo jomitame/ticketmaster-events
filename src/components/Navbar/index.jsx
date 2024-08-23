@@ -8,8 +8,6 @@ const Navbar = () => {
         setSearch(evt.target.value);
     };
 
-    console.log(search);
-
     return (
         <div>
             <p>Mi Boletera</p>
