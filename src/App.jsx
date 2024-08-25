@@ -11,6 +11,7 @@ function App() {
   const containerRef = useRef();
 
   const handleNavbarSearch = (term) => {
+    console.log(containerRef.current.setSearch(''));
     setSearchTerm(term);
   };
 
