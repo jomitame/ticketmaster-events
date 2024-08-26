@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import eventsJSON from '../data/events.json';
 
 const useEventsData = () => {
     const [data, setData] = useState([]);
@@ -7,16 +6,19 @@ const useEventsData = () => {
     const [error, setError] = useState();
 
     useEffect(() => {
-        setTimeout(() => {
+        const fetchEvent = async () => {
             try{
-                setData(eventsJSON);
-            setIsLoading(false);
+                const response = await fetch("https://app.ticketmaster.com/discovery/v2/events.json?apikey=HFXzBJfEfIigZgry3DZeC54c5A5pWzCE");
+                const data = await response.json();
+                setData(data);
+                setIsLoading(false);
             } catch (error) {
                 setError(error);
             }
-            
-        }, 4000);
+        };
+
         // Load API Call
+        fetchEvent();
 
     }, []);
 
