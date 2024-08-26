@@ -4,9 +4,11 @@ import './App.css'
 import Navbar from './components/Navbar';
 import Events from './components/Events';
 
+import Routes from './routes';
+
 
 function App() {
-
+  /*
   const [searchTerm, setSearchTerm] = useState('');
   const containerRef = useRef();
 
@@ -21,6 +23,8 @@ function App() {
       <Events searchTerm={searchTerm} />
     </>
   )
+    */
+  return <Routes />
 }
 
 export default App
