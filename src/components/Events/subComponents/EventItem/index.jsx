@@ -1,3 +1,5 @@
+import './styles.css';
+
 const EventItem = ({ info, id, name, image, onEventClick }) => {
 
     const handleSeeMoreClick = (evt) => {
@@ -6,11 +8,13 @@ const EventItem = ({ info, id, name, image, onEventClick }) => {
     }
 
     return (
-        <div onClick={() => console.log('parent clicked')}>
+        <div onClick={() => console.log('parent clicked')} className='event-item-container'>
             <img src={image} alt={name} width={200} height={200} />
-            <h4>{name}</h4>
-            <p>{info}</p>
-            <button onClick={handleSeeMoreClick}>Ver mas</button>
+            <div className='event-info-container'>
+                <h4 className='event-name'>{name}</h4>
+                <p className='event-info'>{info}</p>
+                <button onClick={handleSeeMoreClick} className='see-more-btn'>Ver mas</button>
+            </div>
         </div>
     );
 };
