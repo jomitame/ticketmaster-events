@@ -14,7 +14,7 @@ const Detail = () => {
     useEffect(() => {
         const fetchEventData = async () => {
             try {
-                const response = await fetch(`https://app.ticketmaster.com/discovery/v2/events/${eventId}?apikey=HFXzBJfEfIigZgry3DZeC54c5A5pWzCE`);
+                const response = await fetch(`https://app.ticketmaster.com/discovery/v2/events/${eventId}?apikey=${import.meta.env.VITE_TICKET_MASTER_API_KEY}`);
                 const data = await response.json()
 
                 setEventData(data);
@@ -36,8 +36,7 @@ const Detail = () => {
     if (Object.keys(error) > 0) {
         return <div>Ha ocurrido un error.</div>;
     }
-    // <p>{format(new Date(eventData.dates?.start.dateTime), 'd LLLL yyyy H:mm')}</p>
-    console.log(eventData);
+
     return (
         <div className={styles.container}>
             <div className={styles.mainInfoContainer}>
