@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+import styles from './Detail.module.css';
+
 const Detail = () => {
     const { eventId } = useParams();
     const [eventData, setEventData] = useState({});
@@ -25,8 +27,24 @@ const Detail = () => {
         fetchEventData();
     }, []);
 
+    if (isLoading && Object.keys(eventData) === 0) {
+        return <div>Cargando evento...</div>
+    }
+
+    if (Object.keys(error) > 0) {
+        return <div>Ha ocurrido un error.</div>;
+    }
+
     console.log(eventData);
-    return <div>Detail</div>
+    return (
+        <div className={styles.container}>
+            <div className={styles.mainInfoContainer}>
+                <img src={eventData.images?.[0].url} alt={eventData.name} />
+                <h4>{eventData.name}</h4>
+                <p>{eventData.info}</p>
+            </div>
+        </div>
+    );
 };
 
 export default Detail;
