@@ -1,10 +1,32 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
+
+import styles from './Profile.module.css';
 
 
 const Profile = () => {
+    const { pathname } = useLocation();
+    const navigate = useNavigate();
+
+    const handleTabClick = (path) => {
+        navigate(`/profile/${path}`);
+    };
+
     return (
         <div>
-            Profile
+            <div>
+                <span
+                    className={`${pathname.includes('my-info') ? styles.active : ''}`}
+                    onClick={() => handleTabClick('my-info')}
+                >
+                        My Info
+                </span>
+                <span
+                    className={`${pathname.includes('liked-events') ? styles.active : ''}`}
+                    onClick={() => handleTabClick('liked-events')}
+                >
+                        Favorites
+                </span>
+            </div>
             <Outlet />
         </div>
     );};
