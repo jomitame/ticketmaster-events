@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { format } from "date-fns";
+import { es } from "date-fns/locale";
 
 import styles from './Detail.module.css';
 
@@ -34,16 +36,27 @@ const Detail = () => {
     if (Object.keys(error) > 0) {
         return <div>Ha ocurrido un error.</div>;
     }
-
+    // <p>{format(new Date(eventData.dates?.start.dateTime), 'd LLLL yyyy H:mm')}</p>
     console.log(eventData);
     return (
         <div className={styles.container}>
             <div className={styles.mainInfoContainer}>
-                <img src={eventData.images?.[0].url} alt={eventData.name} />
-                <h4>{eventData.name}</h4>
-                <p>{eventData.info}</p>
+                <img src={eventData.images?.[0].url} alt={eventData.name} className={styles.eventImage}/>
+                <h4 className={styles.eventName}>{eventData.name}</h4>
+                <p className={styles.infoParagraph}>{eventData.info}</p>
+                {eventData.dates?.start.dateTime ? <p className={styles.datePeragraph}>{format(new Date(eventData.dates?.start.dateTime), 'd LLLL yyyy H:mm', { locale: es })}hrs</p> : null}
             </div>
+            <div className={styles.seatInfoContainer}>
+                <h6 className={styles.seatMapTitle}>Mapa del evento</h6>
+                <img src={eventData.seatmap?.staticUrl} alt="Seatmap event" />
+                <p className={styles.pleaseNoteLegend}>{eventData.pleaseNote}</p>
+                <p className={styles.priceRangeLegend}>Rango de precios: {eventData.priceRanges?.[0].min}-{eventData.priceRanges?.[0].max} {eventData.priceRanges?.[0].currency}</p>
+            </div>
+            <a href={eventData.url}>
+                Ir por tus boletos
+            </a>
         </div>
+        
     );
 };
 
