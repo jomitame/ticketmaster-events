@@ -14,9 +14,13 @@ const Home = () => {
     
     const [searchTerm, setSearchTerm] = useState('');
     const containerRef = useRef();
+    const fetchMyEventsRef = useRef();
+
+    fetchMyEventsRef.current = fetchEvents;
 
     useEffect(() => {
-        fetchEvents();
+        console.log('useEffect');
+        fetchMyEventsRef.current();
     }, []);
 
     const handleNavbarSearch = (term) => {

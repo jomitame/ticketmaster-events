@@ -17,13 +17,14 @@ const MyInfo = () => {
         } catch (error) {
             console.error(error);
         }
-    }, []);
+    }, [setValue]);
 
     const handleFormSubmit = (data) => {
         try {
             localStorage.setItem(USER_DATA, JSON.stringify(data));
             alert("User Updated");
         } catch (error) {
+            console.error(error);
             alert("ERROR");
         }
     };
