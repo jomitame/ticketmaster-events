@@ -6,15 +6,15 @@ const Navbar = forwardRef(({ onSearch }, ref) => {
     const [search, setSearch] = useState('');
 
     useEffect(()=>{
-        console.log('onSearch cambio');
+        //console.log('onSearch cambio');
     }, [onSearch]);
 
     useEffect(()=>{
-        console.log('Componente Listo');
+        //console.log('Componente Listo');
     }, []);
 
     useEffect(()=>{
-        console.log('search cambio');
+        //console.log('search cambio');
     }, [search]);
 
     useImperativeHandle(ref, () => ({
@@ -41,7 +41,7 @@ const Navbar = forwardRef(({ onSearch }, ref) => {
             <div style={{ flex: 1, display: 'flex' }}>
                 <p style={{
                     fontSize: 24,
-                    fontWeight: 'bold',
+                    fontWeight: 'bold'
                 }}>Mi Boletera</p>
             </div>
             <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
@@ -68,6 +68,6 @@ const Navbar = forwardRef(({ onSearch }, ref) => {
     );
 });
 
-Navbar.displayName = Navbar;
+Navbar.displayName = 'Navbar';
 
 export default Navbar;

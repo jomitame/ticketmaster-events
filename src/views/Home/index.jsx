@@ -8,8 +8,8 @@ import styles from './Home.module.css';
 
 const Home = () => {
     const { data, isLoading, error, fetchEvents } = useEventsResults();
-    const events = useMemo(data?._embedded?.events || [], [data?._embedded?.events]);
-    const page = useMemo(data?.page || {}, [data?.page]);
+    const events = useMemo(() => data?._embedded?.events || [], [data?._embedded?.events]);
+    const page = useMemo(() => data?.page || {}, [data?.page]);
     const [isToggle, setIsToggle] = useState(false);
     
     const [searchTerm, setSearchTerm] = useState('');
