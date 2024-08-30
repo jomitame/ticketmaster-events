@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import ReactPaginate from 'react-paginate';
 
 import Navbar from '../../components/Navbar';
@@ -24,9 +24,9 @@ const Home = () => {
         fetchEvents(`&keyword=${term}`);
     };
 
-    const handlePageClick = ({ selected }) => {
+    const handlePageClick = useCallback(({ selected }) => {
         fetchEvents(`&keyword=${searchTerm}&page=${selected}`)
-    };
+    }, [searchTerm, fetchEvents]);
 
     const renderEvents = () => {
         if (isLoading) {
