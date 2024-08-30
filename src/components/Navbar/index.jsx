@@ -5,15 +5,15 @@ const Navbar = forwardRef(({ onSearch }, ref) => {
 
     const [search, setSearch] = useState('');
 
-    useEffect(()=>{
+    useEffect(() => {
         //console.log('onSearch cambio');
     }, [onSearch]);
 
-    useEffect(()=>{
+    useEffect(() => {
         //console.log('Componente Listo');
     }, []);
 
-    useEffect(()=>{
+    useEffect(() => {
         //console.log('search cambio');
     }, [search]);
 

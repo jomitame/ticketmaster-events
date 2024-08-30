@@ -18,9 +18,7 @@ const Profile = () => {
                 <span
                     className={`${pathname.includes('my-info') ? styles.active : ''} ${styles.tab}`}
                     onClick={() => handleTabClick('my-info')}
-                    style={{
-                        marginRight: 8
-                    }}
+                    style={{ marginRight: 8 }}
                 >
                         My Info
                 </span>

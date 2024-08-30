@@ -6,11 +6,13 @@ import { useEffect } from "react";
 const USER_DATA = 'userData';
 
 const MyInfo = () => {
-    const { handleSubmit, register, setValue} = useForm();
+    const { handleSubmit, register, setValue } = useForm();
 
     useEffect(() => {
         try {
-            const userData = JSON.parse(localStorage.getItem(USER_DATA)) || [];
+            console.log(1010);
+            const userData = JSON.parse(localStorage.getItem(USER_DATA)) || {};
+
             setValue('name', userData?.name);
             setValue('email', userData?.email);
             setValue('age', userData?.age);
@@ -24,7 +26,6 @@ const MyInfo = () => {
             localStorage.setItem(USER_DATA, JSON.stringify(data));
             alert("User Updated");
         } catch (error) {
-            console.error(error);
             alert("ERROR");
         }
     };
@@ -41,14 +42,14 @@ const MyInfo = () => {
             <label className={styles.label}>
                 Email
                 <input
-                    {...register('email', { required: true, min: 18, max: 200})}
+                    {...register('email', { required: true, min: 1, max: 200})}
                     className={styles.input}
                 />
             </label>
             <label className={styles.label}>
                 Age
                 <input
-                    {...register('age', { required: true, min: 18, max: 120, valueAsNumber: true})}
+                    {...register('age', { required: true, min: 18, max: 120, valueAsNumber: true })}
                     className={styles.input}
                     type="number"
                 />

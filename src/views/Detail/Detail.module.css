@@ -11,7 +11,7 @@
 .eventImage {
     width: 100%;
     height: 70vh;
-    object-fit: covers;
+    object-fit: cover;
 }
 
 .eventName {

@@ -1,10 +1,8 @@
-.container {
-
-}
+.container {}
 
 .title {
     font-size: 56px;
-    font-weight: 500px;
+    font-weight: 500;
     margin: 0;
 }
 

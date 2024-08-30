@@ -4,7 +4,6 @@ import styles from './Error404.module.css';
 
 const Error404 = () => {
     const error = useRouteError();
-    console.log(error);
 
     return (
         <div className={styles.container}>

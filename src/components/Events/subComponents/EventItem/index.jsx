@@ -1,8 +1,8 @@
 import styles from './EventItem.module.css';
 
-import useLikedEvents from '../../../../hooks/useLikeEvents'
-import HearthFilled from '../../../../assets/hearth-filled.png'
-import HearthUnFilled from '../../../../assets/hearth-unfilled.png'
+import useLikedEvents from '../../../../hooks/useLikeEvents';
+import HearthFilled from '../../../../assets/hearth-filled.png';
+import HearthUnFilled from '../../../../assets/hearth-unfilled.png';
 
 const EventItem = ({ info, id, name, image, onEventClick }) => {
 

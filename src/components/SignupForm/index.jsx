@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 
 const SignupForm = () => {
 
-    const { register, handleSubmit, reset, formState: { errors} } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
     const handleClearClick = () => {
         reset();
