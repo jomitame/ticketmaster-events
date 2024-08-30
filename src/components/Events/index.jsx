@@ -1,5 +1,6 @@
 
 import { useNavigate } from 'react-router-dom';
+import { memo } from 'react';
 
 import EventItem from './subComponents/EventItem';
 
@@ -9,6 +10,8 @@ const Events = ({ searchTerm, events }) => {
     const handleEventItemClick = (id) => {
         navigate(`/detail/${id}`);
     };
+
+    console.log('render events');
 
     const renderEvents = () => {
         let eventsFiltered = events;
@@ -38,4 +41,4 @@ const Events = ({ searchTerm, events }) => {
     );
 };
 
-export default Events;
+export default memo(Events);
